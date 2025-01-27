@@ -1,0 +1,48 @@
+# Dependencies
+node_modules
+package-lock.json
+
+# Build outputs
+out
+dist
+*.vsix
+
+# IDE and System files
+.DS_Store
+.vscode-test
+.vscode-test.*
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test coverage
+coverage
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# TypeScript and JavaScript files
+*.ts text
+*.js text
+*.tsx text
+*.jsx text
+
+# JSON files
+*.json text
+
+# Markdown files
+*.md text diff=markdown
+
+# Don't modify binary files
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.vsix binary
