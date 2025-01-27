@@ -3,9 +3,13 @@
 import * as vscode from "vscode";
 
 export type HandleErrorProps = {
-  error?: any;
+  error?: unknown;
 };
 
 export function handleError({ error }: HandleErrorProps) {
-  vscode.window.showErrorMessage(`Error: ${error.message}`);
+  if (error instanceof Error) {
+    vscode.window.showErrorMessage(`Error: ${error.message}`);
+  } else {
+    vscode.window.showErrorMessage("An unknown error occurred");
+  }
 }

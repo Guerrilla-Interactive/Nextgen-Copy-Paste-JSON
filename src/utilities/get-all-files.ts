@@ -24,7 +24,10 @@ export async function getAllFiles({ dirPath, patterns }: GetAllFilesProps) {
     const files = await fg(absolutePatterns, { onlyFiles: true });
 
     return files.filter((file) => !ig.ignores(path.relative(dirPath, file)));
-  } catch (error: any) {
-    throw new Error(`Error reading directory: ${error.message}`);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      throw new Error(`Error reading directory: ${error.message}`);
+    }
+    throw new Error("Error reading directory: Unknown error occurred");
   }
 }

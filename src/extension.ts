@@ -10,7 +10,7 @@ import { handleInfo } from "./utilities/handle-info";
 import { normalizeUris } from "./utilities/normalize-uris";
 
 export function activate(context: vscode.ExtensionContext) {
-  let disposable = vscode.commands.registerCommand(
+  const disposable = vscode.commands.registerCommand(
     "extension.copyFolderContent",
     async (uri: vscode.Uri, _uris?: vscode.Uri[]) => {
       const uris = _uris || [uri];
@@ -50,7 +50,7 @@ export function activate(context: vscode.ExtensionContext) {
         handleInfo(
           `Content from ${filesToCopy.length} files copied to clipboard.`
         );
-      } catch (error: any) {
+      } catch (error: unknown) {
         handleError({ error });
       }
     }

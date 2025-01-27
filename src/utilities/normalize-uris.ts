@@ -8,8 +8,8 @@ import { getConfig } from "./get-config";
 import { loadGitignore } from "./load-gitignore";
 
 export async function normalizeUris(uris: vscode.Uri[]) {
-  let files: string[] = [];
-  let folders: string[] = [];
+  const files: string[] = [];
+  const folders: string[] = [];
 
   // Load gitignore patterns from the workspace root
   const rootDir = vscode.workspace.workspaceFolders

@@ -3,7 +3,6 @@
 import * as fs from "fs/promises";
 import * as path from "path";
 import * as vscode from "vscode";
-import { extensionToSyntax } from "./extension-to-syntax";
 import { getConfig } from "./get-config";
 import { removeCommentsFromCode } from "./remove-comments";
 import { randomBytes } from "crypto";
@@ -98,7 +97,7 @@ export async function concatenateFilesContent({
     ? vscode.workspace.workspaceFolders[0].uri.fsPath
     : "";
 
-  const { removeComments, includeMetadata, minimize } = getConfig();
+  const { removeComments, minimize } = getConfig();
 
   // Create the base command structure
   const commandStructure: CommandStructure = {

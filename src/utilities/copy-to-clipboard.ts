@@ -23,7 +23,10 @@ export async function copyToClipboard({ content }: CopyToClipboardProps) {
 
     proc.stdin.write(content);
     proc.stdin.end();
-  } catch (error: any) {
-    throw new Error(`Error copying to clipboard: ${error.message}`);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      throw new Error(`Error copying to clipboard: ${error.message}`);
+    }
+    throw new Error(`Error copying to clipboard: ${String(error)}`);
   }
 }
