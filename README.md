@@ -1,6 +1,6 @@
-<p align="center">
+<!-- <p align="center">
   <img src="./assets/readme-title.png" width="600" />
-</p>
+</p> -->
 
 # Context Copy File Contents
 
